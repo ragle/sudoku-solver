@@ -1,4 +1,4 @@
-#A Trivial Sudoku Puzzle Solver
+#A Solver for Trivial Sudoku Puzzles
 
 ###Background
 This was an assignment in my Discrete Math class my sophomore year in University. The goal was to write an algorithm that would solve very simple Sudoku puzzles, using bit masks and set theory. 
