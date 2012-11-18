@@ -8,13 +8,13 @@ The algorithm only had to work for the most basic puzzles, so there is no recurs
 It also was a math assignment, not a software engineering assignment. The app here does not handle errors gracefully, or do anything other than exactly what the assignment called for. 
 
 ###Adventures in refactoring
-I actually busted this assignment out a few hours before it was due. The resulting code was an absolute nightmare. If you're feeling masochistic, you can have a look at old_versions/prototype/sudoku.js.
+I actually busted this assignment out a few hours before it was due. The resulting code was an absolute nightmare. If you're feeling masochistic, you can have a look at [old_versions/prototype/sudoku.js](https://github.com/sanukcode/sudoku-solver/blob/master/old_versions/prototype/sudoku.js).
 
 Because this problem is complex enough to merit a bit of architecture, but simple enough to keep everything in my head and easily see the big picture - this project has become a bit of a JavaScript / architectural sandbox for me. 
 
 As I am trying to become a better coder - I am testing out what I am learning here - on a solved, well understood problem. 
 
-The code in /public is my latest attempt. It's far from perfect, but I doubt anyone could say it isn't an improvement over the original (in terms of readability and maintainability). 
+The code in [/public/app](https://github.com/sanukcode/sudoku-solver/tree/master/public/app) is my latest attempt. It's far from perfect, but I doubt anyone could say it isn't an improvement over the original (in terms of readability and maintainability). 
 
 If you've got any suggestions, drop me a line! 
 
