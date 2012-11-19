@@ -5,25 +5,27 @@ define(function(require){
 
   var mask = require('modules/bitmask');
 
+  //bitmask collections
   var cols = [], rows = [],blocks = [];
 
+  //board elements / cells
   var elements = [];
 
   var init = function(_elements){
     
     importElements(_elements);  //hack - see below
 
-    //create 27  9-bit bitmasks, one for each row, col and block
-    // all bits initialized to 0
     initMasks();
 
-    //update vectors based on values of each element
+    //update bitmasks based on values of each element
     elements.forEach(function(element, idx, arr){
       if (element.value == ''){return;}
       updateMasks(element);
     });
   };
 
+  // create 27  9-bit bitmasks, one for each row, col and block
+  // all bits initialized to 0
   var initMasks = function(){
     for(var i=0; i<9; i++){
       cols[i] = new mask.BitMask(); 
@@ -57,6 +59,8 @@ define(function(require){
     }
   }
 
+
+//expose public board API
 return {
   cols: cols,
   blocks: blocks,

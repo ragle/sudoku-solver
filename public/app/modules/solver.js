@@ -3,7 +3,10 @@ define(function(require){
   var BitMask = require('modules/bitmask').BitMask;
 
   var solve = function(board){
+
     var changeFlag = false;
+
+    //continue to itterate until we can't make any more changes...
     do {
       changeFlag = false;
         generatePossibleVals(board);
@@ -20,8 +23,7 @@ define(function(require){
             return;
           }
 
-          // else, we're searching through an element's siblings
-          // looking for a value that they don't have as a possible val
+          // else, search siblings
           for(var i=0; i<el.posVals.length; i++){
             value = checkSiblings(board, el, el.posVals[i]);
             if (value){
@@ -35,6 +37,7 @@ define(function(require){
   }
 
   // Generate a list of possible values for an element
+  // using characteristic vectors (bitmasks) and binary ops
   var generatePossibleVals = function(board){
     board.elements.forEach(function(el, idx, arr){
       if(el.value != 0){return;}
@@ -48,7 +51,7 @@ define(function(require){
     });
   }
 
-  //set the value of an element, update relevant bitmasks         
+  // set the value of an element, update relevant bitmasks         
   var setAndUpdate = function(board, el, value){
     el.value = value;
     var updateIdx = value-1;
@@ -58,6 +61,9 @@ define(function(require){
     board.blocks[el.block -1].update(updateIdx);
   };
 
+  // search through an element's siblings, checking to see if 
+  // the possible value of our element (that we are checking) 
+  // is also a possible value of any sibling...
   var checkSiblings = function(board, el, checkVal){
     var sibs = el.siblings;
     for(var i=0; i<sibs.length; i++){
@@ -67,6 +73,7 @@ define(function(require){
     return checkVal;
   };
 
+  // binary bitwise operations
   var bitwise = function(){
 
     //Takes a bitmask, performs a bitwise not (~) on a single mask 
@@ -102,6 +109,7 @@ define(function(require){
     
   }();
 
+  //Expose public solver API
   return{
     solve:solve
   }

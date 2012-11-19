@@ -4,6 +4,8 @@
 
 define(function(){
 
+  // get all elements / board cells out of the DOM
+  // extract relevant element metadata, populate element objects
   var getAllElements = function(){
 
     var $elements = $('.boardElement'),
@@ -28,7 +30,8 @@ define(function(){
   }
 
   setSiblings = function(elements){
-    //Shitty O(n^2) search for siblings, but we're only searching ~80 objects, so fuck it.
+    // Shitty O(n^2) search for siblings, but we're only searching 
+    // ~80 objects, so fuck it.
     elements.forEach(function(curElement, idx, arr){
       arr.forEach(function(checkElement, idx, arr){
 
@@ -50,7 +53,7 @@ define(function(){
 
   }
 
-  //Expose module API
+  //Expose public reader API
   return{
     getAllElements: getAllElements
   }

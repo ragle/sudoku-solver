@@ -23,11 +23,12 @@ define(function(){
       return intRepresentation;
   };
 
-  //updates the bitmask to reflect the addition of a new element to the set
+  //update a bitmask to reflect the addition of a new element to the set
   BitMask.prototype.update = function(idx){
     this.mask[idx] = 1;
   };
 
+  //expose public bitmask API
   return {
     BitMask: BitMask
   }
