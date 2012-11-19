@@ -4,7 +4,6 @@
 define(function(){
 
   var writeSolution = function(board){
-    console.log("WOOO!");
     board.elements.forEach(function(el,idx,arr){
       $('#'+idx)[0].childNodes[1].value= el.value;
     });

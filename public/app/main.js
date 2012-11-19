@@ -11,8 +11,6 @@ define(function (require) {
           var solver = require('modules/solver');
           solver.solve(gameBoard);
 
-          console.log(gameBoard);
-
           var writer = require('modules/writer');
           writer.writeSolution(gameBoard);
         });

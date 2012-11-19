@@ -5,7 +5,6 @@ define(function(require){
   var solve = function(board){
     var changeFlag = false;
     do {
-      console.log("loop!");
       changeFlag = false;
         generatePossibleVals(board);
         board.elements.forEach(function(el, idx, arr){
