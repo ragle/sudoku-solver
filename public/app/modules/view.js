@@ -1,7 +1,7 @@
+//DOM Interaction layer. Gets user input from game board, writes a solution
+
 define(function(){
 
-  // get all elements / board cells out of the DOM
-  // extract relevant element metadata, populate element objects
   var getGameElements = function(){
 
     var $elements = $('.boardElement');
