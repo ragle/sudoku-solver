@@ -1,6 +1,4 @@
 //reader.js - DOM Interaction Layer - pulls data off of the interface
-//          to be used to populate the virtual board for the solver
-//          and write a solution to the UI.
 
 define(function(){
 
@@ -31,7 +29,7 @@ define(function(){
 
   setSiblings = function(elements){
     // Shitty O(n^2) search for siblings, but we're only searching 
-    // ~80 objects, so fuck it.
+    // ~80 objects...
     elements.forEach(function(curElement, idx, arr){
       arr.forEach(function(checkElement, idx, arr){
 

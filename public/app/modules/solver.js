@@ -66,10 +66,12 @@ define(function(require){
   // is also a possible value of any sibling...
   var checkSiblings = function(board, el, checkVal){
     var sibs = el.siblings;
+
     for(var i=0; i<sibs.length; i++){
       match = $.inArray(checkVal, board.elements[sibs[i]].posVals) != -1 ? true : false; 
       if (match){return false}
     }
+  
     return checkVal;
   };
 

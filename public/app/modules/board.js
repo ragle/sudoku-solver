@@ -48,7 +48,7 @@ define(function(require){
   };
 
   // very crufty hack to get around scope issue or some issue with
-  // require.js and references. _elements.slice(0) doesn't work? 
+  // require.js and references? _elements.slice(0) doesn't work? 
   // Need to investigate further, or really just refactor so that 
   // elements get built by board constructor instead of reader. 
   // reader should really be just "view", and worry only about DOM 
