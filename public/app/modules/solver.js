@@ -75,7 +75,9 @@ define(function(require){
     return checkVal;
   };
 
-  // binary bitwise operations
+  // binary bitwise operations. Yes - JavaScript has built in bitwise operations.
+  // The assignment was to build your own. Arrays offer a good visualization
+  // of the problem / solution during debugging.
   var bitwise = function(){
 
     //Takes a bitmask, performs a bitwise not (~) on a single mask 

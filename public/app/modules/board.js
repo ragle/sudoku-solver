@@ -1,5 +1,5 @@
-//Virtual sudoku board consisting of sets of bitmasks representing 
-//colums, rows and blocks
+// Virtual sudoku board consisting of sets of bitmasks representing 
+// colums, rows and blocks. 
 
 define(function(require){
 
@@ -11,10 +11,15 @@ define(function(require){
   //board elements / cells
   var elements = [];
 
-  var init = function(_elements){
+  var init = function($elements){
     
-    importElements(_elements);  //hack - see below
+    //pull out element meta data (row, col, etc)
+    importElementMeta($elements);
 
+    //assign siblings (elements in same row, col or block)
+    setSiblings(elements);
+
+    //initialize empty bitmasks for each row, col and block
     initMasks();
 
     //update bitmasks based on values of each element
@@ -47,20 +52,48 @@ define(function(require){
     blocks[blockIdx].update(bMaskIdx); 
   };
 
-  // very crufty hack to get around scope issue or some issue with
-  // require.js and references? _elements.slice(0) doesn't work? 
-  // Need to investigate further, or really just refactor so that 
-  // elements get built by board constructor instead of reader. 
-  // reader should really be just "view", and worry only about DOM 
-  //interaction... tsk, tsk, tsk...
-  var importElements= function(_elements){
-    for(var i = 0; i<_elements.length; i++){
-      elements[i] = _elements[i];
-    }
+  var importElementMeta= function($elements){
+    $elements.each(function(){
+      var $this = $(this),
+      el ={
+        id: $this.attr('id'),
+        col: $this.attr('data-col'),
+        row: $this.attr('data-row'),
+        block: $this.attr('data-block'),
+        value: this.childNodes[1].value,
+        posVals: [],
+        siblings: []
+      };
+      elements[el.id] = el;   
+    });
+  }
+
+  var setSiblings = function(elements){
+    // Shitty O(n^2) search for siblings, but we're only searching 
+    // ~80 objects...
+    elements.forEach(function(curElement, idx, arr){
+      arr.forEach(function(checkElement, idx, arr){
+
+        //these are not the elements you're looking for...
+        if(curElement.id == checkElement.id){return;}
+
+        //Mark as siblings if row, col or block matches
+        var sameRow   = curElement.row   == checkElement.row,
+            sameCol   = curElement.col   == checkElement.col,
+            sameBlock = curElement.block == checkElement.block;
+
+        if (sameRow || sameCol || sameBlock){
+          curElement.siblings.push(checkElement.id);
+        }
+
+      })
+
+    });
+
   }
 
 
-//expose public board API
+//expose public gameboard API
 return {
   cols: cols,
   blocks: blocks,
