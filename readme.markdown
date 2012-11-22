@@ -3,9 +3,9 @@
 ###Background
 This was an assignment in my Discrete Math class my sophomore year in University. The goal was to write an algorithm that would solve very simple Sudoku puzzles, using bit masks and set theory. This involved some pretty fun stuff - including hacking together some bitwise operations (JavaScript has built in bitwise operations but the assignment was to implement our own).
 
-The algorithm only had to work for the most basic puzzles, so there is no recursive backtracking or brute force fallback. 
+The algorithm only had to work for the most basic puzzles, so there is no recursive backtracking or brute force fallback. (yet :)
 
-Also - this was a math assignment, not a software engineering assignment. The app here does not deal with unexpected input, handle errors gracefully, or do anything other than exactly what the problem set called for. 
+Also - this was a math assignment, not a software engineering assignment. The app here does not deal with unexpected input, or handle errors gracefully. 
 
 ###Adventures in Refactoring
 I actually busted this assignment out a few hours before it was due. The resulting code was an absolute nightmare. If you're feeling masochistic, you can have a look at [old_versions/prototype/sudoku.js](https://github.com/sanukcode/sudoku-solver/blob/master/old_versions/prototype/sudoku.js).
