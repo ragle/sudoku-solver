@@ -1,7 +1,7 @@
 #A Solver for Trivial Sudoku Puzzles
 
 ###Background
-This was an assignment in my Discrete Math class my sophomore year in University. The goal was to write an algorithm that would solve very simple Sudoku puzzles, using bit masks and set theory. This involved some pretty fun stuff - including hacking together some bitwise operations (JavaScript has built in bitwise operations but the assignment was to implement our own).
+This was an assignment in my Discrete Math class my sophomore year in university. The goal was to write an algorithm that would solve very simple Sudoku puzzles, using bit masks and set theory. This involved some pretty fun stuff - including hacking together some bitwise operations (JavaScript has built in bitwise operations but the assignment was to implement our own).
 
 The algorithm only had to work for the most basic puzzles, so there is no recursive backtracking or brute force fallback. (yet :)
 
